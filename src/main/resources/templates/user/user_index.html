@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>user_index</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link th:href="@{bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
+<script th:src="@{bootstrap/js/bootstrap.min.js}"></script>
+<style>
+.jumbotron {
+	/* background: url(image/background.png); */
+}
+</style>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand">NBA</a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/user_index">Home Page <span class="sr-only">(current)</span></a></li>
+        <li><a href="/all_teams">All Teams</a></li>
+        <li><a href="/rank_of_teams">Rank of Teams</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a th:text="'welcome : ' +${session.name}"></a></li>
+        <li><a href="/">Logout</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+	<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-7">
+			<h3>Today</h3>
+			<table class="table table-bordered table-hover" style="width:600px">
+				<tr>
+					<th>Time</th>
+					<th>Host</th>
+					<th>Guest</th>
+					<th>Result</th>
+				</tr>
+				<tr th:each="today : ${today}">
+					<td th:text="${today.time}">Onions</td>
+					<td th:text="${today.host}">Onions</td>
+					<td th:text="${today.guest}">Onions</td>
+					<td th:text="${today.result}">Onions</td>
+				</tr>
+			</table>
+		</div>
+		<div class="col-md-3">
+			<h3>My favorite teams</h3>
+			<div th:each="favorites : ${favorites}">
+			<br />
+				<form action="/details" method="post">
+					<input type="hidden" name=team_name th:value="${favorites.teamName}">
+					<button type="submit" th:text="${favorites.teamName}" class="btn btn-danger btn-sm">details</button>
+				</form>
+				
+			</div>
+		</div>
+		<div class="col-md-1"></div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>user_login</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!-- <link th:href="@{bootstrap/css/bootstrap.min.css}" rel="stylesheet" /> -->
+<link th:href="@{my/css/Mcss.css}" rel="stylesheet" />
+<script th:src="@{bootstrap/js/bootstrap.min.js}"></script>
+
+</head>
+<body>
+<div id="content">
+    <div class="login-header">
+        <img th:src="@{logo/logo.jpg}" style="height:35px;width:90px">
+    </div>
+    <form action="/re" method="post">
+        <div class="login-input-box">
+            <span class="icon icon-user"></span>
+            <input type="text" name="name" id="name" placeholder="Please enter your name">
+        </div>
+        <div class="login-input-box">
+            <span class="icon icon-password"></span>
+            <input type="password" name="password" id="password" placeholder="Please enter your password">
+        </div>
+    
+<!--     	<div class="remember-box">
+        	<label>
+            	<input type="checkbox">&nbsp;Remember Me
+        	</label>
+    	</div> -->
+    	<div class="login-button-box">
+       	 	<button type="submit">Register</button>
+    	</div>
+    	<div class="logon-box">
+        	<a href="/">Return to login</a>
+    	</div>
+    </form>
+</div>
+	<!-- <div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-10">
+			<div class="jumbotron">
+				<h1>User Login</h1>
+			</div>
+			<form action="/user_login" method="post">
+				<div class="form-group">
+					<label for="name">Name:</label> <input name="name"
+						class="form-control" id="name" placeholder="text">
+				</div>
+				<div class="form-group">
+					<label for="password">Password:</label> <input name="password"
+						class="form-control" id="password" placeholder="text">
+				</div>
+				<button type="submit" class="btn btn-warning">login</button>
+			</form>
+		</div>
+		<div class="col-md-1"></div>
+	</div> -->
+
+</body>
+</html>

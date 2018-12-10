@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>admin_index</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link th:href="@{bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
+<script th:src="@{bootstrap/js/bootstrap.min.js}"></script>
+<style>
+.jumbotron {
+	/* background: url(image/background.png); */
+}
+</style>
+</head>
+<body>
+	<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-10">
+		<ul class="nav navbar-nav navbar-right">
+        <li><a th:text="'welcome : ' +${session.name}"></a></li>
+        <li><a href="/">Logout</a></li>
+      </ul>
+		
+			<table class="table table-bordered table-hover">
+				<tr>
+					<th>User Id</th>
+					<th>User Name</th>
+					<th>status</th>
+					<th>block</th>
+					<th>open</th>
+				</tr>
+				<tr th:each="userlist : ${userlist}">
+					<td th:text="${userlist.id}" style="width:80px">Onions</td>
+					<td th:text="${userlist.name}" style="width:80px">Onions</td>
+					<td th:text="${userlist.state}" style="width:80px">Onions</td>
+					<td style="width:80px">
+						<form action="/block" method="post">
+							<input type="hidden" name=userid th:value="${userlist.id}">
+							<button type="submit" class="btn btn-warning">block</button>
+						</form>
+					</td>
+					<td style="width:80px">
+						<form action="/open" method="post">
+							<input type="hidden" name=userid th:value="${userlist.id}">
+							<button type="submit" class="btn btn-warning">open</button>
+						</form>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="col-md-1"></div>
+	</div>
+
+</body>
+</html>
