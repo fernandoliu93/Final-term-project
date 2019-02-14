@@ -11,4 +11,3 @@ username: xxx       password: 000000
 Admin:
 Username: admin      password: admin
 Facebook 
-Username: fernandoliu902@gmail.com password: yuejingyi1998
